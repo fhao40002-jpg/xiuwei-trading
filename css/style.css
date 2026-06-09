@@ -209,12 +209,12 @@ h4 { font-size:1.2rem; font-weight:500; }
 }
 
 .qr-frame {
-  width: 105px;
-  height: 105px;
-  padding: 8px;
-  background: var(--bg);
+  width: 160px;
+  height: 160px;
+  padding: 10px;
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,13 +225,13 @@ h4 { font-size:1.2rem; font-weight:500; }
 
 .qr-card:hover .qr-frame {
   border-color: var(--gold);
-  box-shadow: 0 6px 30px rgba(200,150,62,0.15);
+  box-shadow: 0 6px 30px rgba(200,150,62,0.2);
 }
 
 .qr-frame img {
-  width: 89px;
-  height: 89px;
-  border-radius: 6px;
+  width: 140px;
+  height: 140px;
+  border-radius: 8px;
   object-fit: contain;
 }
 
