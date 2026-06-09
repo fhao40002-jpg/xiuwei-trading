@@ -192,26 +192,22 @@
         </p>
       </div>
     </div>
-    <form class="contact-form" id="contactForm" action="https://formsubmit.co/fhao40002@gmail.com" method="POST" target="_blank">
-      <input type="hidden" name="_subject" value="秀威供应链 · 新询盘">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://fhao40002-jpg.github.io/xiuwei-trading/?sent=ok">
+    <form class="contact-form" id="contactForm" onsubmit="return sendInquiry(event)">
       <div class="form-group">
         <label>您的姓名 *</label>
-        <input type="text" name="姓名" required placeholder="请填写姓名">
+        <input type="text" id="inqName" required placeholder="请填写姓名">
       </div>
       <div class="form-group">
         <label>公司名称</label>
-        <input type="text" name="公司" placeholder="请填写公司名称">
+        <input type="text" id="inqCompany" placeholder="请填写公司名称">
       </div>
       <div class="form-group">
         <label>电子邮箱 *</label>
-        <input type="email" name="邮箱" required placeholder="请填写邮箱">
+        <input type="email" id="inqEmail" required placeholder="请填写邮箱">
       </div>
       <div class="form-group">
         <label>咨询品类</label>
-        <select name="品类">
+        <select id="inqCategory">
           <option>原油 (ESPO / Urals)</option>
           <option>矿产品 (钨矿 / 铜矿 / 其他)</option>
           <option>摩托车 & ATV</option>
@@ -220,9 +216,9 @@
       </div>
       <div class="form-group">
         <label>留言内容</label>
-        <textarea name="留言" rows="4" placeholder="请描述您的需求..."></textarea>
+        <textarea id="inqMessage" rows="4" placeholder="请描述您的需求..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;">发送询盘</button>
+      <button type="submit" class="btn btn-primary" style="width:100%;">发送询盘</button>
       <p id="formMsg" style="display:none;text-align:center;margin-top:1rem;color:var(--gold-light);font-weight:600;"></p>
     </form>
   </div>

@@ -63,20 +63,31 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Form submission - traditional POST (most reliable)
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  // Check if redirected back after successful submission
-  if (window.location.search.includes('sent=ok')) {
-    const msg = document.getElementById('formMsg');
-    if (msg) {
-      msg.textContent = '✓ 询盘已发送！我们会尽快回复您。';
-      msg.style.display = 'block';
-      msg.style.color = '#4CAF50';
-    }
-    // Clean URL
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
+// Form submission - mailto + FormSubmit fallback
+function sendInquiry(e) {
+  e.preventDefault();
+  const name = document.getElementById('inqName').value.trim();
+  const company = document.getElementById('inqCompany').value.trim();
+  const email = document.getElementById('inqEmail').value.trim();
+  const category = document.getElementById('inqCategory').value;
+  const message = document.getElementById('inqMessage').value.trim();
+
+  const subject = encodeURIComponent(`秀威供应链询盘 - ${category} - from ${name}`);
+  const body = encodeURIComponent(
+    `姓名: ${name}\n公司: ${company}\n邮箱: ${email}\n品类: ${category}\n留言: ${message}\n---\n发送自: 秀威供应链官网`
+  );
+
+  // Open email client
+  window.location.href = `mailto:fhao40002@gmail.com?subject=${subject}&body=${body}`;
+
+  // Also try to silently POST to FormSubmit as backup
+  fetch('https://formsubmit.co/fhao40002@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `姓名=${encodeURIComponent(name)}&公司=${encodeURIComponent(company)}&邮箱=${encodeURIComponent(email)}&品类=${encodeURIComponent(category)}&留言=${encodeURIComponent(message)}&_subject=${subject}&_template=table&_captcha=false`
+  }).catch(() => {});
+
+  return false;
 }
 
 // Smooth counter animation for stats
