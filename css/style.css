@@ -191,6 +191,64 @@ h4 { font-size:1.2rem; font-weight:500; }
   outline:none; border-color:var(--gold);
 }
 
+/* ===== QR CARDS ===== */
+.qr-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.qr-card {
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.qr-card:hover {
+  transform: translateY(-4px);
+}
+
+.qr-frame {
+  width: 105px;
+  height: 105px;
+  padding: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.qr-card:hover .qr-frame {
+  border-color: var(--gold);
+  box-shadow: 0 6px 30px rgba(200,150,62,0.15);
+}
+
+.qr-frame img {
+  width: 89px;
+  height: 89px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.qr-card p {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.qr-card:hover p {
+  color: var(--gold);
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background:var(--bg2); border-top:1px solid var(--border);
